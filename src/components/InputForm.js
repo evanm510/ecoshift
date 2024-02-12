@@ -27,12 +27,11 @@ export default function () {
   });
 
   useEffect(() => {
-    // Update formValues with the latest calculationChoices
     setFormValues((prevFormValues) => ({
       ...prevFormValues,
       calculationChoices: calculationChoices,
     }));
-  }, [calculationChoices]); // This effect runs when calculationChoices changes
+  }, [calculationChoices]);
 
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
@@ -66,15 +65,14 @@ export default function () {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Making the POST request
     fetch("/calculate", {
-      method: "POST", // or 'PUT'
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formValues), // body data type must match "Content-Type" header
+      body: JSON.stringify(formValues),
     })
-      .then((response) => response.json()) // Parsing the JSON response
+      .then((response) => response.json())
       .then((data) => {
         setResponse(data);
       })

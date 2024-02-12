@@ -1,22 +1,8 @@
 import React, { useState, useEffect } from "react";
 import InputForm from "./components/InputForm";
-// import backgroundImage from "./background-image.jpg";
 
 function App() {
   const [message, setMessage] = useState("");
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const response = await fetch("/message");
-  //       const data = await response.json();
-  //       setMessage(data.message);
-  //     } catch (error) {
-  //       console.error("Error fetching data: ", error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
 
   return (
     <div className="background">

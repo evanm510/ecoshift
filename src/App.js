@@ -1,29 +1,44 @@
 import React, { useState, useEffect } from "react";
+import InputForm from "./components/InputForm";
+// import backgroundImage from "./background-image.jpg";
 
 function App() {
   const [message, setMessage] = useState("");
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch("/message");
-        const data = await response.json();
-        setMessage(data.message);
-        console.log("response: " + JSON.stringify(response));
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const response = await fetch("/message");
+  //       const data = await response.json();
+  //       setMessage(data.message);
+  //     } catch (error) {
+  //       console.error("Error fetching data: ", error);
+  //     }
+  //   }
+  //   fetchData();
+  // }, []);
 
   return (
-    <div className="App">
-      <header className="App-header"></header>
-      <main>
-        <div>Message:</div>
-        <div>{message}</div>
-      </main>
+    <div className="background">
+      <div className="app">
+        <header className="App-header">
+          <div className="app-title">EcoShift: EV vs. Gas Calculator</div>
+        </header>
+        <main>
+          <div className="info-text">
+            Electricity for Electric Vehicles (EVs) typically costs
+            significantly less than gasoline for traditional vehicles, offering
+            substantial savings on a per-mile basis. This cost advantage is due
+            to the higher efficiency of electric motors and the generally more
+            stable and lower prices of electricity compared to the often
+            volatile gasoline market. This app will allow you to directly
+            compare the energy costs associated with EVs vs. gas powered
+            vehicles to help you be an informed buyer when considering an EV as
+            your next vehicle.
+          </div>
+          <InputForm />
+        </main>
+      </div>
     </div>
   );
 }
